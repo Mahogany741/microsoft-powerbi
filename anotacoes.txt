@@ -1,0 +1,92 @@
+Business Intelligence x Data Science 
+
+Tipos de Análise 
+
+    
+    - Descritiva (BI) (DS)
+
+        O que aconteceu?
+
+    - Diagnóstica (BI) (DS)
+
+        Por que isso aconteceu?
+
+    - Preditiva (DS)
+
+        O que acontecerá?
+
+    - Prescritiva (DS)
+
+        O que deve ser feito?
+
+
+Big Data Analytics x Machine Learning 
+
+    Big Data Analytics: (análise Descritiva)
+
+        Extrair conhecimento a partir dos dados (Big Data), aplicando técnicas de análise (Data Science).
+
+    Machine Learning (análise Preditiva)
+
+        Treinar algoritmos para encontrar os padrões nos dados de forma automática e então fazer previsões.
+
+O que é o Power BI 
+
+    Data view (Ferramenta de visualização de dados)
+    Preencher a lacuna entre os dados e a tomada de decisão
+
+Power BI Desktop x Power BI Pro x Power BI Premium
+
+Drill-Down (ou granularidade)
+
+    Exemplo: Uma base dados, que você você gera uma coluna baseada na data, ela provavelmente trará o ano na coluna. Isso ocorre pq o PowerBI agrupou pelo ano. Ao clicar nas 'duas setinhas' viradas para baixo, você pode alterar a hierarquia, o que mudará a forma que o PowerBI agrupou... (ano para trimestre por exemplo)
+
+Transformações de dados
+
+    No exemplo utilizado no curso, a coluna preco, estava no formato americano, separando com '.' ao inves de ','. 
+    A solução recomendada, é fazer esse tratamento, antes de carregar o arquivo.
+
+    arquivo > opcoes > opcoes > arquivo atual > configuracoes regionais > localidade > ingles (estados unidos)
+
+Power BI Desktop Workflow
+
+Preparação dos dados > Modelagem dos Dados > Visualização dos Dados
+
+Dica: Tudo isso, é antecidido pela definição do problema do negócio.
+
+Preparação dos Dados 
+    Query Editor 
+
+Modelagem 
+    Relationship View / Data View 
+
+Visualização 
+    Report View
+
+ESTUDO DE CASO 1
+
+Seu gerente precisa das seguintes informações:
+
+1: Total de Vendas por Ano (ok)
+    
+    1.1: Verificar se as vendas estão acima da média: Clica no gráfico > Visualizações > lupa (análise) > linha média > adicionar
+
+2: Custo de Entrega Do Veículo por Fabricante (ok)
+    
+
+3: Custo de Mão de Obra por Estado (ok)
+
+    Clica no gráfico > Visualizações > mapa (análise) 
+    Campos > dado_custoMaodeObra e dado_Estado
+
+4: Total de Vendas Geral e Matriz de Vendas
+
+    Total de Vendas: Visualizações > Cartão > dado_ValorVenda
+    Matriz: Visualizações > Matriz > dado_Fabricante, dado_CustoEntrega, dado_custoMaodeObra e  dado_ValorVenda
+
+Formatando o Dashboard
+
+Exibição > Exibição de página > Ajustar a largura 
+
+Dica: Simplicidade, é o maior sinal de sofisticação.
+Dica: Não represente informações diferentes, com o mesmo tipo de gráfico.
