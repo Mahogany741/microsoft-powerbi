@@ -90,3 +90,116 @@ Exibição > Exibição de página > Ajustar a largura
 
 Dica: Simplicidade, é o maior sinal de sofisticação.
 Dica: Não represente informações diferentes, com o mesmo tipo de gráfico.
+
+Disponibilizando o seu dash board online
+
+Para fazer o compartilhamento, é necessário ter uma conta corporativa(empresa/estudante) e estar usando o PowerBI PRO.
+
+
+CAPÍTULO 3 - Business Intelligence no Power BI
+
+    Para que você usa o Power BI?
+
+        - Para criar gráficos! (ERRADO) 
+        - Para criar relatórios! (ERRADO)
+        - Para modelar os dados sem a necessidade de programação! (ERRADO)
+        - Para integrar com outros produtos Microsoft! (ERRADO)
+        - Para resolver problemas de negócio, entregar soluções e ajudar a empresa ou cliente a alcançar seus objetivos e estratégias. (CORRETO)
+
+        BI = Coleta > Organização > analise > compartilhamento > monitoramento de informações que oferecem suporte a gestão do negócio.
+
+        Tranforma dados em informações e conhecimento para tomada de decisões.
+
+        BI é um conceito.
+
+ESTUDO DE CASO 2 - Definindo estratégias de Vendas
+
+Modelo de Organização dos Dados 
+
+    Posso levar os dados para o PowerBI da forma que estão?
+
+    Quais são os requerimentos de Organização dos Dados?
+
+    Como mantenho os dados em um formato de atualização sob demanda?
+
+    Como visualizar os dados por diferentes visões e ângulos?
+
+    Como definimos o melhor modelos de organização dos dados?
+
+        - Processo de Negócio (Ex: Venda de Produtos Eletrônicos)
+        - Definir nível de detalhamento (granularidade) (Ex: Total de Produtos Mais Vendidos Por dia)
+        - Identificar as dimensões necessárias (Ex: Fabricante, Produto, Loja, Tempo)
+        - Criar o Schema (Ex: Modelo Criando no DW ou no PowerBI(mais simples))
+
+    Modelos de Organização de Dados mais usados em BI 
+
+        STAR SCHEMA: Modelo estrela (mais simples)
+        SNOWFLAKE SCHEMA: Floco de neve (mais poderoso / mais complexo)
+
+Dica: Em BI primeiro voce organiza os dados (cria um modelo/schema) > carrega os dados. No Big Data, vc carrega primeiro, organiza depois. 
+
+Ferramentas de Modelagem 
+
+    - Erwin 
+    - Archi (Gratuita)
+    - SQL DBM
+    - Toad 
+    - pgModeler (Gratuita)
+    - Enterprise Data Modeling
+    - Data Modeling Oracle SQL Developer
+    - IBM InfoSphere
+
+Modelo Star Schema
+
+    Tabelas DIM são as dimensões que representam as entidades em nosso problema de negócio e que classificam os dados!
+    Tabela FATO representa um fato, um detalhe, por exemplo, uma venda. Cada fato acontece a partir da junção das dimensões.
+
+    PK = Primary Key (Chave primária)
+    FK = Foreign Key (Chave Estrangeira)
+
+    Criando o Schema
+
+        Criando as Tabelas 'DIMENSÃO' 
+
+            Carrega os dados > Transformar Dados > ("Por segurança e devido ao volume de dados, vamos duplicar a tabela e renomear para 'DIM_PRODUTO") > Selecionar 'DIM_PRODUTO' e clicar em escolher colunas > selecionar apenas as colunas que referem-se a produto
+
+        DIM_PRODUTO, DIM_LOJA, DIM_VENDEDOR, DIM_TEMPO
+
+        Criando a Tabela FATO
+
+            Além da coluna ValorVenda, foram mantidas as colunas ID (Produto, Loja, Vendedor, Data), que farão relacionamento com as DIM 
+
+
+            INFO: Se ao invés de clicar em duplicar, clicarmos em 'referencia', o PB, criará uma cópia que terá uma dependencia da original, tudo o que for alterado em uma é alterado na outra. 
+
+        Relacionamento entre as tabelas 
+
+            Selecione o icone 'Modelo' > Organizar as tabelas com a TB_FATO ao centro, afim de parecer um Star Schema > Selecionar a TB_FATO e clicar em 'Gerenciar relações > Clicar em novo e selecione a DIM_desejada e TB_FATO > Selecione as colunas nas tabelas que farão o relacionamento > 
+
+        ALERTA DE APRENDIZADO 
+
+            A DIM_LOJA, foi duplicado e manteve todos as suas linhas/registros (o que já era esperado). Porém, na hora de realizar o relacionamento com a TB_FATO, o PowerBI negou, devido a duplicidade nas chaves. 
+
+            obs: O mesmo ocorreu com DIM_VENDEDOR e DIM_TEMPO
+            A DIM_PRODUTO não precisou desse procedimento, pois já tinha um ID/CHAVE única, que inclusive, foi o que permitiu o PowerBI identificar o relacionamento automaticamente.
+
+            Como resolver? 
+
+                Selecione DIM_LOJA > Transformar Dados > Botao direito na coluna Loja (ID/chave) > Remover duplicatas 
+
+    Solução do Problema 
+
+        A empresa está montando a estratégia de vendas para o próximo ano e precisa saber qual dos fabricantes dos produtos vendidos, apresenta melhor desempenho nas vendas. O objetivo é descartar os fabricantes cujos produtos possuem poucas vendas e tentar negociar melhores condições com os principais fabricantes
+
+    Exercícios extras 
+
+        # Crie um Dashboard no Power BI que responda a estas perguntas:
+
+        1- Qual dos fabricantes dos produtos vendidos, apresenta melhor desempenho nas vendas? (já resolvido)
+
+        2- Qual o total de vendas por estado e por categoria? Use um mapa.
+
+        3- Qual o total de vendas por segmento? 
+
+        4- Qual segmento tem maior influência no valor médio de venda? 
+
